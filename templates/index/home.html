@@ -1,0 +1,57 @@
+{{define "index/home"}}
+<html>
+    <head>
+        <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Todos</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <p class="navbar-text navbar-right">
+                        <a href="/register" class="navbar-link">Register</a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+		<h1>Simple Todo List App</h1>
+		<table class="table">
+			<tbody>
+                {{range .}}
+                    <tr>
+						<td>{{.Name}}</td>
+						<td></td>
+						<td></td>
+						<td><a href="/delete_todos/{{.Id}}"><button class="btn btn-danger">Hapus</button></a></td>
+					</tr>
+                {{end}}
+				<tr>
+                    <form action="/todos" method="post">
+                        <td>
+                            <label>Tambah Data Baru</label>
+                            <input class="form-control" type="text" name="name">
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <br>
+                            <button class="btn btn-primary" id="btn">Tambah</button>
+                        </td>
+                    </form>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer class="red">
+        <div class="container">
+            <div class="">
+                <p class="copyright text-muted small">Copyright &copy; mikelrn 2015. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+{{end}}
